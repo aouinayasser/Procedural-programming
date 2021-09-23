@@ -1,0 +1,50 @@
+// Methode par fonction
+FUNCTION dot_product(v1, v2) : INTEGER
+VAR
+    i, ps : INTEGER;
+BEGIN
+    IF (v1.length != v2.length) THEN
+        WRITE ("Add values")
+    END_IF
+
+    FOR i FROM 0 TO v1.length-1 DO
+        ps := ps + v1[i]*v2[i]
+    END_FOR
+    RETURN ps ;
+END
+
+// Methode par procédure
+
+PROCEDURE dot_product(v1,v2: ARRAY_OF INTEGER, VAR ps: INTEGER)
+VAR
+    i: INTEGER
+BEGIN
+    IF (v1.length != v2.length) THEN
+        WRITE ("Add values")
+    END_IF
+
+    FOR i FROM 0 TO v1.length-1 DO
+        ps := ps + v1[i]*v2[i]
+    END_FOR
+END
+
+
+// Algorithme Principale
+ALGORITHM produitScalaire
+VAR
+    v1,v2: ARRAY_OF INTEGER[10];
+    ps: INTEGER;
+BEGIN
+    // Par fonction
+    ps := dot_product();
+
+    // Par procédure
+    dot_product(v1,v2,ps);
+  
+    IF (ps = 0) THEN
+        WRITE ("The Two vectors are orthogonal")
+    ELSE
+        WRITE ("The two vectors are not orthogonal")
+    END_IF
+    END_IF
+END
